@@ -1,0 +1,8 @@
+[package]
+name = "CAN_Bootloader"
+version = "0.1.0"
+authors = ["Sean Harrington <sharrington93@gmail.com>"]
+build = "build.rs"
+
+[dependencies]
+libc="*"
