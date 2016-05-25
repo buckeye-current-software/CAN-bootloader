@@ -35,6 +35,8 @@
 #define BOOT_KEY_WORD2	(0x4B53)
 #define BOOT_KEY_WORD3	(0x5543)
 #define BOOT_KEY_WORD4	(0x4B53)
+#define FLASH_STAT_ADDR	(0x3F6000)
+#define FLASH_SUCCESS	(0xAAAA)
 
 #define DELAY_US(A)  DSP28x_usDelay(((((long double) A * 1000.0L) / (long double)CPU_RATE) - 9.0L) / 5.0L)
 
@@ -89,29 +91,32 @@ Uint32 CAN_Boot()
 	Uint16 *ramAddr = RAM_START;
 	Uint16 *otpAddr = (Uint16 *)&Bootload;
 
-   Uint16 * modeAddr = (Uint16 *) BOOT_MODE_ADDR;
-   if (*modeAddr != BOOT_KEY_WORD1)
-   {
-	   return FLASH_ENTRY_POINT;
-   }
-   modeAddr++;
+	if (*((Uint16 *) FLASH_STAT_ADDR) == FLASH_SUCCESS)
+	{
+		Uint16 * modeAddr = (Uint16 *) BOOT_MODE_ADDR;
+		if (*modeAddr != BOOT_KEY_WORD1)
+		{
+		   return FLASH_ENTRY_POINT;
+		}
+		modeAddr++;
 
-   if (*modeAddr != BOOT_KEY_WORD2)
-   {
-	   return FLASH_ENTRY_POINT;
-   }
-   modeAddr++;
+		if (*modeAddr != BOOT_KEY_WORD2)
+		{
+		   return FLASH_ENTRY_POINT;
+		}
+		modeAddr++;
 
-   if (*modeAddr != BOOT_KEY_WORD3)
-   {
-	   return FLASH_ENTRY_POINT;
-   }
-   modeAddr++;
+		if (*modeAddr != BOOT_KEY_WORD3)
+		{
+		   return FLASH_ENTRY_POINT;
+		}
+		modeAddr++;
 
-   if (*modeAddr != BOOT_KEY_WORD4)
-   {
-	   return FLASH_ENTRY_POINT;
-   }
+		if (*modeAddr != BOOT_KEY_WORD4)
+		{
+		   return FLASH_ENTRY_POINT;
+		}
+	}
 
 	InitSysCtrl();
 
@@ -394,8 +399,7 @@ NULL is defined in <stdio.h>.
 	ECanaMboxes.MBOX2.MSGID.bit.AAM = 0; 	//RTR AUTO TRANSMIT
 	ECanaMboxes.MBOX2.MSGCTRL.bit.DLC = 8;
 	ECanaMboxes.MBOX2.MSGID.bit.STDMSGID = 0x2;
-	ECanaMboxes.MBOX2.MDH.all = 0;
-	ECanaMboxes.MBOX2.MDL.all = 0;
+
 	ECanaRegs.CANMC.all = 2;
 
 	if (Flash_Erase(SECTOR_F2803x, &FlashStatus) != 0)
@@ -634,6 +638,9 @@ NULL is defined in <stdio.h>.
 	{
 		*modeAddr++ = 0;
 	}
+
+	wordData = FLASH_SUCCESS;
+	Flash_Program(((Uint16 *) FLASH_STAT_ADDR), &wordData, 1, &FlashStatus);
 
 	ECanaRegs.CANMC.all = 2 | (0x100);
 	ECanaMboxes.MBOX2.MDH.all = 0x0000;

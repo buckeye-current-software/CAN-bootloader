@@ -23,8 +23,8 @@ Source/DSP2803x_SysCtrl.obj: C:/ti/controlSUITE/device_support/f2803x/v130/DSP28
 Source/DSP2803x_SysCtrl.obj: C:/ti/controlSUITE/device_support/f2803x/v130/DSP2803x_headers/include/DSP2803x_Sci.h
 Source/DSP2803x_SysCtrl.obj: C:/ti/controlSUITE/device_support/f2803x/v130/DSP2803x_headers/include/DSP2803x_SysCtrl.h
 Source/DSP2803x_SysCtrl.obj: C:/ti/controlSUITE/device_support/f2803x/v130/DSP2803x_headers/include/DSP2803x_XIntrupt.h
-Source/DSP2803x_SysCtrl.obj: C:/Users/Sean/Documents/Buckeye\ Current\ New/F28035_Flash_CAN_OTP/Headers/DSP2803x_Examples.h
-Source/DSP2803x_SysCtrl.obj: C:/Users/Sean/Documents/Buckeye\ Current\ New/F28035_Flash_CAN_OTP/Headers/DSP2803x_GlobalPrototypes.h
+Source/DSP2803x_SysCtrl.obj: C:/Users/Sean/Documents/Buckeye\ Current\ New/CAN-Bootloader/F28035_Flash_CAN_OTP/Headers/DSP2803x_Examples.h
+Source/DSP2803x_SysCtrl.obj: C:/Users/Sean/Documents/Buckeye\ Current\ New/CAN-Bootloader/F28035_Flash_CAN_OTP/Headers/DSP2803x_GlobalPrototypes.h
 
 ../Source/DSP2803x_SysCtrl.c: 
 C:/ti/controlSUITE/device_support/f2803x/v130/DSP2803x_headers/include/DSP2803x_Device.h: 
@@ -49,5 +49,5 @@ C:/ti/controlSUITE/device_support/f2803x/v130/DSP2803x_headers/include/DSP2803x_
 C:/ti/controlSUITE/device_support/f2803x/v130/DSP2803x_headers/include/DSP2803x_Sci.h: 
 C:/ti/controlSUITE/device_support/f2803x/v130/DSP2803x_headers/include/DSP2803x_SysCtrl.h: 
 C:/ti/controlSUITE/device_support/f2803x/v130/DSP2803x_headers/include/DSP2803x_XIntrupt.h: 
-C:/Users/Sean/Documents/Buckeye\ Current\ New/F28035_Flash_CAN_OTP/Headers/DSP2803x_Examples.h: 
-C:/Users/Sean/Documents/Buckeye\ Current\ New/F28035_Flash_CAN_OTP/Headers/DSP2803x_GlobalPrototypes.h: 
+C:/Users/Sean/Documents/Buckeye\ Current\ New/CAN-Bootloader/F28035_Flash_CAN_OTP/Headers/DSP2803x_Examples.h: 
+C:/Users/Sean/Documents/Buckeye\ Current\ New/CAN-Bootloader/F28035_Flash_CAN_OTP/Headers/DSP2803x_GlobalPrototypes.h: 

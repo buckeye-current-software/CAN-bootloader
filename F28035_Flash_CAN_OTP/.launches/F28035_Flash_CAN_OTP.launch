@@ -17,7 +17,7 @@
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROGRAM.Texas Instruments XDS100v2 USB Debug Probe/C28xx" value="${build_artifact:F28035_Flash_CAN_OTP}"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROJECT.Texas Instruments XDS100v2 USB Debug Probe/C28xx" value="F28035_Flash_CAN_OTP"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_TARGET_CONFIG" value="${target_config_active_default:F28035_Flash_CAN_OTP}"/>
-<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.Texas Instruments XDS100v2 USB Debug Probe/C28xx" value="C:/Users\Sean\Documents\Buckeye Current New\F28035_Flash_CAN_OTP\Debug\F28035_Flash_CAN_OTP.out"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.Texas Instruments XDS100v2 USB Debug Probe/C28xx" value="C:/Users\Sean\Documents\Buckeye Current New\CAN-Bootloader\F28035_Flash_CAN_OTP\Debug\F28035_Flash_CAN_OTP.out"/>
 <mapAttribute key="com.ti.ccstudio.debug.ui.displayFormats">
 <mapEntry key="Texas Instruments XDS100v2 USB Debug Probe/C28xx@##separator##@1" value="16-Bit Hex - TI Style"/>
 </mapAttribute>

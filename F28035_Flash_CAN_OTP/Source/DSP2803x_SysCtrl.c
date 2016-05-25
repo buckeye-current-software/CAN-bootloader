@@ -52,12 +52,6 @@ void InitSysCtrl(void)
    // See the device data manual and/or the ADC Reference
    // Manual for more information.
 
-        EALLOW;
-        SysCtrlRegs.PCLKCR0.bit.ADCENCLK = 1; // Enable ADC peripheral clock
-        (*Device_cal)();
-        SysCtrlRegs.PCLKCR0.bit.ADCENCLK = 0; // Return ADC clock to original state
-        EDIS;
-
    //External CRYSTAL oscillator and turns off all other clock
    // sources to minimize power consumption.
    //XtalOscSel();

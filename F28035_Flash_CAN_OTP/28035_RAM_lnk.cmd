@@ -82,8 +82,8 @@ MEMORY
 PAGE 0 :
    /* BEGIN is used for the "boot to SARAM" bootloader mode   */
     INIT_BOOT   : origin = 0x3D7800, length = 0x000020
-	CANBOOTINIT : origin = 0x3D7820, length = 0x0001d8
-	CANBOOT     : origin = 0x3D79F8, length = 0x000206
+	CANBOOTINIT : origin = 0x3D7820, length = 0x0001d1
+	CANBOOT     : origin = 0x3D79F1, length = 0x00020d
 	OTP_KEY		: origin = 0x3D7BFE, length = 0x000001
 	OTP_BMODE	: origin = 0x3D7BFF, length = 0x000001
 	BEGIN      : origin = 0x000000, length = 0x000002
@@ -103,8 +103,8 @@ PAGE 1 :
    BOOT_PASS   : origin = 0x0007fc, length = 0x000004
    RAML2       : origin = 0x008C00, length = 0x000400
    RAML30		: origin = 0x009000, length = 0x000020
-   RAML31       : origin = 0x009020, length = 0x000134
-   RAML32		: origin = 0x009156, length = 0x000ECA
+   RAML31       : origin = 0x009020, length = 0x0001d1
+   RAML32		: origin = 0x0091f1, length = 0x00020d
 }
 
 

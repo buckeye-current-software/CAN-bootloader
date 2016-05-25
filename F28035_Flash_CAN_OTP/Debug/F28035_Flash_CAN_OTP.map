@@ -1,7 +1,7 @@
 ******************************************************************************
              TMS320C2000 Linker PC v6.4.6                      
 ******************************************************************************
->> Linked Thu May 19 19:38:28 2016
+>> Linked Tue May 24 14:14:48 2016
 
 OUTPUT FILE NAME:   <F28035_Flash_CAN_OTP.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 00008000
@@ -16,8 +16,8 @@ PAGE 0:
   RAMM0                 00000050   000003b0  0000001a  00000396  RWIX
   RAML0L1               00008000   00000c00  0000009d  00000b63  RWIX
   INIT_BOOT             003d7800   00000020  0000001c  00000004  RWIX
-  CANBOOTINIT           003d7820   000001d8  000001d8  00000000  RWIX
-  CANBOOT               003d79f8   00000206  000001fe  00000008  RWIX
+  CANBOOTINIT           003d7820   000001d1  000001d1  00000000  RWIX
+  CANBOOT               003d79f1   0000020d  0000020b  00000002  RWIX
   OTP_KEY               003d7bfe   00000001  00000001  00000000  RWIX
   OTP_BMODE             003d7bff   00000001  00000001  00000000  RWIX
   IQTABLES              003fe000   00000b50  00000000  00000b50  RWIX
@@ -74,8 +74,8 @@ PAGE 1:
   I2CA                  00007900   00000040  00000022  0000001e  RWIX
   RAML2                 00008c00   00000400  0000030a  000000f6  RWIX
   RAML30                00009000   00000020  00000000  00000020  RWIX
-  RAML31                00009020   00000134  00000000  00000134  RWIX
-  RAML32                00009156   00000eca  00000000  00000eca  RWIX
+  RAML31                00009020   000001d1  00000000  000001d1  RWIX
+  RAML32                000091f1   0000020d  00000000  0000020d  RWIX
   PARTID                003d7e80   00000001  00000001  00000000  RWIX
   CSM_PWL               003f7ff8   00000008  00000008  00000000  RWIX
 
@@ -106,12 +106,12 @@ ramfuncs   0    00000066    00000004
                   003d7800    0000001c     Init_Boot.obj (.InitBoot)
 
 .OTP_INIT 
-*          0    003d7820    000001d8     
-                  003d7820    00000112     CAN_Boot.obj (.OTP_INIT)
-                  003d7932    000000c6     DSP2803x_SysCtrl.obj (.OTP_INIT)
+*          0    003d7820    000001d1     
+                  003d7820    0000011a     CAN_Boot.obj (.OTP_INIT)
+                  003d793a    000000b7     DSP2803x_SysCtrl.obj (.OTP_INIT)
 
-.OTP       0    003d79f8    000001fe     
-                  003d79f8    000001fe     CAN_Boot.obj (.OTP)
+.OTP       0    003d79f1    0000020b     
+                  003d79f1    0000020b     CAN_Boot.obj (.OTP)
 
 KeyVal     0    003d7bfe    00000001     
                   003d7bfe    00000001     CAN_Boot.obj (KeyVal)
@@ -440,14 +440,14 @@ page  address   name
 0     0000807b  C$$EXIT              
 1     00007100  _AdcRegs             
 1     00000b00  _AdcResult           
-0     003d79f8  _Bootload            
+0     003d79f1  _Bootload            
 0     003d7820  _CAN_Boot            
-0     003d7877  _CAN_Init            
+0     003d787f  _CAN_Init            
 1     00001400  _Cla1Regs            
 1     00006400  _Comp1Regs           
 1     00006420  _Comp2Regs           
 1     00006440  _Comp3Regs           
-0     003d7916  _CopyToRam           
+0     003d791e  _CopyToRam           
 1     00000c00  _CpuTimer0Regs       
 1     00000c08  _CpuTimer1Regs       
 1     00000c10  _CpuTimer2Regs       
@@ -455,7 +455,7 @@ page  address   name
 1     00000ae0  _CsmRegs             
 0     00000066  _DSP28x_usDelay      
 1     00000880  _DevEmuRegs          
-0     003d7971  _DisableDog          
+0     003d796a  _DisableDog          
 1     00006040  _ECanaLAMRegs        
 1     000060c0  _ECanaMOTORegs       
 1     00006080  _ECanaMOTSRegs       
@@ -472,7 +472,7 @@ page  address   name
 1     00006b00  _EQep1Regs           
 1     00000d01  _EmuBMode            
 1     00000d00  _EmuKey              
-0     003d7979  _EnableDog           
+0     003d7972  _EnableDog           
 abs   003ff9b3  _Flash2803x_Erase    
 abs   003ff8d2  _Flash2803x_Program  
 1     00000a80  _FlashRegs           
@@ -486,18 +486,18 @@ abs   003ff8d2  _Flash2803x_Program
 1     00006ae0  _HRCap2Regs          
 1     00007900  _I2caRegs            
 0     003d7800  _InitBoot            
-0     003d794c  _InitFlash           
-0     003d79da  _InitPeripheralClocks
-0     003d7985  _InitPll             
-0     003d7932  _InitSysCtrl         
-0     003d79e8  _IntOsc1Sel          
+0     003d7945  _InitFlash           
+0     003d79d3  _InitPeripheralClocks
+0     003d797e  _InitPll             
+0     003d793a  _InitSysCtrl         
+0     003d79e1  _IntOsc1Sel          
 1     00006c00  _LinaRegs            
 1     00007060  _NmiIntruptRegs      
 1     003d7e80  _PartIdRegs          
 1     00000ce0  _PieCtrlRegs         
 1     00000d00  _PieVectTable        
 1     00007050  _SciaRegs            
-0     003d7967  _ServiceDog          
+0     003d7960  _ServiceDog          
 1     00007040  _SpiaRegs            
 1     00007740  _SpibRegs            
 1     00007010  _SysCtrlRegs         
@@ -556,17 +556,17 @@ page  address   name
 0     0000809d  etext                
 0     003d7800  _InitBoot            
 0     003d7820  _CAN_Boot            
-0     003d7877  _CAN_Init            
-0     003d7916  _CopyToRam           
-0     003d7932  _InitSysCtrl         
-0     003d794c  _InitFlash           
-0     003d7967  _ServiceDog          
-0     003d7971  _DisableDog          
-0     003d7979  _EnableDog           
-0     003d7985  _InitPll             
-0     003d79da  _InitPeripheralClocks
-0     003d79e8  _IntOsc1Sel          
-0     003d79f8  _Bootload            
+0     003d787f  _CAN_Init            
+0     003d791e  _CopyToRam           
+0     003d793a  _InitSysCtrl         
+0     003d7945  _InitFlash           
+0     003d7960  _ServiceDog          
+0     003d796a  _DisableDog          
+0     003d7972  _EnableDog           
+0     003d797e  _InitPll             
+0     003d79d3  _InitPeripheralClocks
+0     003d79e1  _IntOsc1Sel          
+0     003d79f1  _Bootload            
 0     003d7bfe  _bootKey             
 0     003d7bff  _bootMode            
 1     000007fc  _bootPass            

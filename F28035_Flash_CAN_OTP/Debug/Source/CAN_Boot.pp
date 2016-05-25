@@ -23,9 +23,9 @@ Source/CAN_Boot.obj: C:/ti/controlSUITE/device_support/f2803x/v130/DSP2803x_head
 Source/CAN_Boot.obj: C:/ti/controlSUITE/device_support/f2803x/v130/DSP2803x_headers/include/DSP2803x_Sci.h
 Source/CAN_Boot.obj: C:/ti/controlSUITE/device_support/f2803x/v130/DSP2803x_headers/include/DSP2803x_SysCtrl.h
 Source/CAN_Boot.obj: C:/ti/controlSUITE/device_support/f2803x/v130/DSP2803x_headers/include/DSP2803x_XIntrupt.h
-Source/CAN_Boot.obj: C:/Users/Sean/Documents/Buckeye\ Current\ New/F28035_Flash_CAN_OTP/Headers/Boot.h
-Source/CAN_Boot.obj: C:/Users/Sean/Documents/Buckeye\ Current\ New/F28035_Flash_CAN_OTP/Headers/Flash2803x_API_Library.h
-Source/CAN_Boot.obj: C:/Users/Sean/Documents/Buckeye\ Current\ New/F28035_Flash_CAN_OTP/Headers/Flash2803x_API_Config.h
+Source/CAN_Boot.obj: C:/Users/Sean/Documents/Buckeye\ Current\ New/CAN-Bootloader/F28035_Flash_CAN_OTP/Headers/Boot.h
+Source/CAN_Boot.obj: C:/Users/Sean/Documents/Buckeye\ Current\ New/CAN-Bootloader/F28035_Flash_CAN_OTP/Headers/Flash2803x_API_Library.h
+Source/CAN_Boot.obj: C:/Users/Sean/Documents/Buckeye\ Current\ New/CAN-Bootloader/F28035_Flash_CAN_OTP/Headers/Flash2803x_API_Config.h
 
 ../Source/CAN_Boot.c: 
 C:/ti/controlSUITE/device_support/f2803x/v130/DSP2803x_headers/include/DSP2803x_Device.h: 
@@ -50,6 +50,6 @@ C:/ti/controlSUITE/device_support/f2803x/v130/DSP2803x_headers/include/DSP2803x_
 C:/ti/controlSUITE/device_support/f2803x/v130/DSP2803x_headers/include/DSP2803x_Sci.h: 
 C:/ti/controlSUITE/device_support/f2803x/v130/DSP2803x_headers/include/DSP2803x_SysCtrl.h: 
 C:/ti/controlSUITE/device_support/f2803x/v130/DSP2803x_headers/include/DSP2803x_XIntrupt.h: 
-C:/Users/Sean/Documents/Buckeye\ Current\ New/F28035_Flash_CAN_OTP/Headers/Boot.h: 
-C:/Users/Sean/Documents/Buckeye\ Current\ New/F28035_Flash_CAN_OTP/Headers/Flash2803x_API_Library.h: 
-C:/Users/Sean/Documents/Buckeye\ Current\ New/F28035_Flash_CAN_OTP/Headers/Flash2803x_API_Config.h: 
+C:/Users/Sean/Documents/Buckeye\ Current\ New/CAN-Bootloader/F28035_Flash_CAN_OTP/Headers/Boot.h: 
+C:/Users/Sean/Documents/Buckeye\ Current\ New/CAN-Bootloader/F28035_Flash_CAN_OTP/Headers/Flash2803x_API_Library.h: 
+C:/Users/Sean/Documents/Buckeye\ Current\ New/CAN-Bootloader/F28035_Flash_CAN_OTP/Headers/Flash2803x_API_Config.h: 
