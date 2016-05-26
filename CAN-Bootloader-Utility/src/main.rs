@@ -18,9 +18,10 @@ extern {
 	fn canWriteWait(handle: i16, id: u32, msg: *const c_void, dlc: u16, flag: u16, timeout: u32) -> i16;
 	fn canBusOn(handle: i16) -> i16;
 	fn canClose(handle: i16) -> i16;
-	fn canReadWait(handle: i16, id: *mut i32, msg: *mut c_void, dlc: *mut u16, flag: *mut u16, time: *mut u32, timeout: u32) -> i16;
+	//fn canReadWait(handle: i16, id: *mut i32, msg: *mut c_void, dlc: *mut u16, flag: *mut u16, time: *mut u32, timeout: u32) -> i16;
 	fn canFlushReceiveQueue(handle: i16) -> i16;
 	fn canReadSyncSpecific(handle: i16, id: u16, timeout: u32) -> i16;
+	fn canReadSpecificSkip(handle: i16, id: i32, msg: *mut c_void, dlc: *mut u16, flag: *mut u16, time: *mut u32) -> i16;
 	//fn canReadWait(handle: i16, id: *mut i32, msg: *mut c_void, dlc: *mut u16, flag: *mut u16, time: *mut u32, timeout: u32) -> i16;
 }
 
@@ -112,7 +113,6 @@ fn main() {
 
 		// Wait for message that device bootload is ready for program
 		let mut rx_bytes: [u8; 8] = [0, 0, 0, 0, 0, 0, 0, 0];
-		let mut id = 0;
 		let mut dlc = 0;
 		let mut flag = 0;
 		let mut time = 0;
@@ -156,7 +156,7 @@ fn main() {
 		result = unsafe{canReadSyncSpecific(hndl, 2, 10000)};
 		if result == ERROR_OK
 		{
-			result = unsafe{canReadWait(hndl, &mut id, rx_bytes.as_mut_ptr() as *mut c_void, &mut dlc, &mut flag, &mut time, 10000)};
+			result = unsafe{canReadSpecificSkip(hndl, 2, rx_bytes.as_mut_ptr() as *mut c_void, &mut dlc, &mut flag, &mut time)};
 			// Successful program message received. Bootloading complete
 			if (result == ERROR_OK) && (rx_bytes[2] == 128){
 				complete = 1;
