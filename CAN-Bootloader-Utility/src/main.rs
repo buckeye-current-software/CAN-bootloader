@@ -9,6 +9,7 @@ use std::env;
 const NO_TIMEOUT: u32 = 0xFFFFFFFF;
 const ERROR_OK: i16 = 0;
 const BOOTLOAD_HEARTBEAT_ID: u16 = 0x2;
+const BOOTLOAD_BITRATE: i32 = -1;
 
 #[link(name = "canlib32")]
 extern {
@@ -30,6 +31,8 @@ fn main() {
 	let mut file_param = String::from("");
 	let mut device_param = 0;
 	let mut bypass_cmd_start = 0;
+	let mut bus = 0;
+	let mut bitrate = 0;
 	
 	// Determine arguments
 	let args: Vec<_> = env::args().collect();
@@ -46,8 +49,32 @@ fn main() {
 				}
 			}
 		}
-		else if args[index] == "-b" {
+		else if args[index] == "-bypass" {
 			bypass_cmd_start = 1;
+		}
+		else if args[index] == "-bus" {
+			match args[index + 1].parse::<u16>() {
+				Ok(n) => bus = n,
+				Err(e) => {
+					println!("Unable to parse -bus. Error: {}", e);
+					return
+				}
+			}
+		}
+		else if args[index] == "-bitrate" {
+			match args[index + 1].parse::<u32>() {
+				Ok(n) => {
+					if n == 500000 {
+						bitrate = -2;	// 500 Kb/sec
+					}
+					else if n == 1000000 {
+						bitrate = -1;	// 1000 Kb/sec
+					}
+				},
+				Err(e) => {
+					println!("Unable to parse -bitrate. Error: {}", e);
+				}
+			}
 		}
 	}
 	
@@ -55,14 +82,13 @@ fn main() {
 	
 	unsafe {canInitializeLibrary()};
 	
-	let hndl = unsafe {canOpenChannel(0, 0)};
+	let hndl = unsafe {canOpenChannel(bus, 0)};
 	
 	if hndl < ERROR_OK {
 		println!("Failed to open CAN channel!. Error: {}", hndl);
 		return
 	}
 	
-	let bitrate = -1; // 1000 Kb/sec
 	let mut result = unsafe {canSetBusParams(hndl, bitrate, 0, 0, 0, 0, 0)};
 	
 	if result != ERROR_OK {
@@ -108,6 +134,14 @@ fn main() {
 	
 	// Flush queue to be safe
 	unsafe{canFlushReceiveQueue(hndl)};
+	
+	// Change bitrate to bootloading bitrate (1 Mb/sec)
+	unsafe{canSetBusParams(hndl, BOOTLOAD_BITRATE, 0, 0, 0, 0, 0)};
+	
+	if result != ERROR_OK {
+		println!("Failed to set CAN bus parameters. Error: {}", result);
+		return
+	}
 	
 	while complete == 0 {
 
