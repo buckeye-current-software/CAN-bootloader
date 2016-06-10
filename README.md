@@ -13,9 +13,11 @@ To use the utility, make sure to build the rust program for your target (See htt
 
 * -i: Input ASCII encoded program to bootload over CAN
 * -d: Device CAN ID which should be bootloaded (Command ID for that device). This will cause the bootloader to send the special start bootload command message which will cause the device to reset, enter bootloading, and wait for the new program contents to be received)
-* -b: Bypass mode. If the device is already in it's bootload state and waiting for program contents, this mode should be used to skip sending the bootload command message.
+* -bypass: Bypass mode. If the device is already in it's bootload state and waiting for program contents, this mode should be used to skip sending the bootload command message.
+* -bus: CAN bus to send the bootload over.
+* -bitrate: CAN bitrate to send the bootload command with. Note: This does not change the bitrate that the CAN bootloader sends the bootloaded program over.
 
-Example execution: `CAN_Bootloader.exe -i "Magic CAN Node.a00" -b`
+Example execution: `CAN_Bootloader.exe -i "Magic CAN Node.a00" -bus 0 -bitrate 1000000 -d 487`
 
 ### F28035_Flash_CAN_OTP
 A flash image for a F28035 to install the bootloader in the OTP section of memory for the device. 
